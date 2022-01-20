@@ -1,5 +1,5 @@
 const config = {
-    iconUrl:'/icons/pin.svg',
+    iconUrl:'icons/pin.svg',
     statesRef:{
         "bretagne": [48.748945343432936, -6.229248046875001],
 		"normandie": [50.24720490139267, -3.9221191406250004],
