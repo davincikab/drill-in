@@ -1,0 +1,7 @@
+<svg data-name="pin ronde" xmlns="http://www.w3.org/2000/svg" width="18.5" height="33">
+    <path data-name="Tracé 854"
+          d="M9.2 0A9.3 9.3 0 00.1 8.3a9.3 9.3 0 007.1 10.2c.5.1.5.5.6 1L9.2 33l1.5-13.2c0-.6 0-1.2.5-1.3a9.3 9.3 0 007.2-10.2A9.3 9.3 0 009.2 0z"
+          fill="#fff" fill-rule="evenodd"/>
+    <path data-name="Tracé 855" d="M9.2 15a5.8 5.8 0 10-5.8-5.8 5.8 5.8 0 005.8 5.9z" fill="#387338"
+          fill-rule="evenodd"/>
+</svg>
