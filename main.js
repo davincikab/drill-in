@@ -127,10 +127,15 @@ function getPopupContent(feature) {
 
     return `<div class="popup-content">
         <div class="content">
-            <span class="state">${feature.properties.Region}</span>
+            <span class="state">${feature.properties.Title}</span>
             <div class="count-state"><font style="vertical-align: inherit;">
                 <font style="vertical-align: inherit;">${count} ${count>1?"Bâtiments":"Bâtiment"}</font></font>
             </div>
+
+            <div><b>Region</b><div>
+            <div>${feature.properties.Region}</div>
+            <div><b>Description</b><div>
+            <div>${feature.properties.Description}</div>
         </div>
         <div>
 
