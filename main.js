@@ -58,9 +58,22 @@ L.tileLayer("https://{s}.tile.openstreetmap.fr/openriverboatmap/{z}/{x}/{y}.png"
 .addTo(map);
 
 // regions
+// #7AB41D
+// #318CE7
+// #FFDD50
+let tipIcon = L.divIcon({
+    className:'',
+    html:''
+});
+
+let tooltipMarker = L.marker([0,0], {
+    icon:tipIcon
+}).bindTooltip("").addTo(map);
+
 var activeRegion;
 function getFillColor(feature) {
-    let color = '#65768a';
+    let color = '#318CE7';
+    // '#65768a';
 
     if(activeRegion && activeRegion.properties['nom'] == feature.properties['nom']) {
         color = '#fff'
@@ -85,6 +98,15 @@ const regionsJson = L.geoJSON(null, {
            
             activeRegion = feature;
             updateFillColor(e);
+        });
+
+        layer.on('mouseover', function(e) {
+            // console.log(e.target.feature.properties);
+            tooltipMarker.setLatLng(e.latlng).setTooltipContent(feature.properties.nom);
+        });
+
+        layer.on('mouseleave', function(e) {
+            
         });
     },
     style:function(feature) {
@@ -144,7 +166,7 @@ function getPopupContent(feature) {
 }
 
 const divIcons = function(name, count) {
-    const s = `<div><span class="state">${name}</span><span>${count} ${count>1?"Bâtiments":"Bâtiment"}</span></div>`;
+    const s = `<div style=""><span class="state">${name}</span><span>${count} ${count>1?"Bâtiments":"Bâtiment"}</span></div>`;
 
     return L.divIcon({
         html: s,
