@@ -72,8 +72,8 @@ let tooltipMarker = L.marker([0,0], {
 
 var activeRegion;
 function getFillColor(feature) {
-    let color = '#318CE7';
-    // '#65768a';
+    let color = '#65768a';
+    // '';
 
     if(activeRegion && activeRegion.properties['nom'] == feature.properties['nom']) {
         color = '#fff'
