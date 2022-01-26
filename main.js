@@ -37,18 +37,6 @@ resetBtn.addEventListener("click", function(e) {
     resetView();
 });
 
-// zoomControl.
-
-// tileLayer
-// L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiZGF1ZGk5NyIsImEiOiJjanJtY3B1bjYwZ3F2NGFvOXZ1a29iMmp6In0.9ZdvuGInodgDk7cv-KlujA', {
-//     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-//     maxZoom: 18,
-//     id: 'mapbox/streets-v11',
-//     tileSize: 512,
-//     zoomOffset: -1,
-//     accessToken: 'pk.eyJ1IjoiZGF1ZGk5NyIsImEiOiJjanJtY3B1bjYwZ3F2NGFvOXZ1a29iMmp6In0.9ZdvuGInodgDk7cv-KlujA'
-// }).addTo(map);
-
 L.tileLayer("https://{s}.tile.openstreetmap.fr/openriverboatmap/{z}/{x}/{y}.png",
 {
 	attribution: "© OSM Contributors - tiles OpenRiverboatMap",
@@ -271,7 +259,7 @@ function getPointGeojson(items) {
 }
 
 function updateCountyPoints(feature) {
-    let data = points.filter(pnt => pnt.Region == feature.properties.name);
+    let data = points.filter(pnt => pnt.Region == feature.properties.nom);
 
     let pGeo = getPointGeojson(data);
     console.log(pGeo);
