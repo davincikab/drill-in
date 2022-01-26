@@ -68,7 +68,8 @@ let tipIcon = L.divIcon({
 
 let tooltipMarker = L.marker([0,0], {
     icon:tipIcon
-}).bindTooltip("").addTo(map);
+}).bindTooltip("")
+// .addTo(map);
 
 var activeRegion;
 function getFillColor(feature) {
@@ -186,7 +187,7 @@ const countPoints = L.geoJSON(null, {
 .addTo(map)
 
 // load the geojson
-fetch('county.geojson')
+fetch('https://davincikab.github.io/drill-in/county.geojson')
 .then(res => res.json())
 .then(data => {
     regionsJson.addData(data);
@@ -270,7 +271,7 @@ function getPointGeojson(items) {
 }
 
 function updateCountyPoints(feature) {
-    let data = points.filter(pnt => pnt.Region == feature.properties.nom);
+    let data = points.filter(pnt => pnt.Region == feature.properties.name);
 
     let pGeo = getPointGeojson(data);
     console.log(pGeo);
