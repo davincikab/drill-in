@@ -80,8 +80,98 @@
             border-radius: 5px;
         }
 
+        .leaflet-popup-content {
+            margin:0px;
+            width: auto !important;
+        }
+
+        .aside-testimonial {
+            height: auto;
+            flex: 1;
+            width: 280px;
+            padding: 0px;
+            background-color: #65768a;
+            color:white;
+        }
+
+        .testimonial-title {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        .testimonial-title hr {
+            width: 50px;
+            height: 1px;
+            background-color: rgb(66, 66, 66);
+            margin: 5px 0;
+        }
+
+        .user-review {
+            padding:0.5rem;
+            padding: 0.8rem 2rem;
+            position: relative;
+            margin:0.75rem 0;
+        }
+
+        .user-review p {
+            margin:0;
+            font-size: 1.2em;
+        }
+
+        .user-review::before {
+            position: absolute;
+            top: -5px;
+            left: 10px;
+            content:" ";
+            width: 20px;
+            height: 20px;
+            color: #fff;
+            font-size: 3rem;
+            color:white;
+            background: center/contain no-repeat url(https://www.triangle-energie.com/assets/triangleenergie/71424514eb4819b3f2b54ab9687f6767.svg);
+        }
+
+        .user-review::after {
+            position: absolute;
+            bottom: -5px;
+            right: 10px;
+            content:" ";
+            width: 20px;
+            height: 20px;
+            color: #fff;
+            font-size: 3rem;
+            color:white;
+            background: center/contain no-repeat url(https://www.triangle-energie.com/assets/triangleenergie/32e6ce3f3d23a0d85f658c0e3b879b0a.svg);
+        }
+
+        .popup-content .aside-testimonial img {
+            height: 150px;
+        }
+
+        .popup-content img {
+            height: 120px;
+            width: 100%;
+        }
+
+        .popup-content .content {
+            flex: 1;
+            padding: 0.5rem;
+            width: 300px;
+            position: relative;
+        }
+
+        .content .content-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
         .popup-content {
             display: flex;
+            width: auto;
         }
 
         .popup-content .state {
@@ -116,6 +206,44 @@
             z-index: 99;
             cursor: pointer;
             transition: background-color .2s ease-in-out;
+        }
+
+        .link-section {
+            position: absolute;
+            bottom: 10%;
+            left: 0%;
+            font-size: 1rem;
+            width: 100%;
+            padding: 5px;
+            font-size: 1em;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        div .btn-link {
+            text-decoration: none;
+            padding: 0.5rem 0.75rem;
+            width: 80%;
+            margin:0.5rem auto;
+            background: #65768a;
+            color: white !important;
+            text-align: center;
+        }
+
+        @media screen  and (max-width:480px) {
+            .popup-content {
+                display: flex;
+            }
+
+            .aside-testimonial {
+                display: none;
+            }
+
+            .popup-content .content {
+                width: 200px;
+            }
         }
     </style>
 </head>

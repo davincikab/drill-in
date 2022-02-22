@@ -1,5 +1,5 @@
 const config = {
-    iconUrl:'icons/pin.svg',
+    iconUrl:'https://davincikab.github.io/drill-in/icons/pin.svg',
     statesRef:{
         "bretagne": [48.748945343432936, -6.229248046875001],
 		"normandie": [50.24720490139267, -3.9221191406250004],
@@ -114,7 +114,7 @@ const regionsJson = L.geoJSON(null, {
 
 const pntIcons = L.icon({
     iconUrl: config.iconUrl,
-	iconSize: this.L.point(12.47, 22)
+	iconSize: L.point(15.47, 30)
 });
 
 const regionPoints = L.geoJSON(null, {
@@ -137,16 +137,52 @@ function getPopupContent(feature) {
     console.log("Popup");
 
     return `<div class="popup-content">
-        <div class="content">
-            <span class="state">${feature.properties.Title}</span>
-            <div class="count-state"><font style="vertical-align: inherit;">
-                <font style="vertical-align: inherit;">${count} ${count>1?"Bâtiments":"Bâtiment"}</font></font>
+        <div class="aside-testimonial">
+            <div class="img-header">
+                <img src="https://picsum.photos/200/150" alt="home" />
             </div>
 
-            <div><b>Region</b><div>
-            <div>${feature.properties.Region}</div>
-            <div><b>Description</b><div>
-            <div>${feature.properties.Description}</div>
+            <div class="testimonial-title">
+                <span>
+                    <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">Philippe Geeraerts</font>
+                    </font>
+                </span>
+                <hr>
+                <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Cereal</font></font></span>
+            </div>
+
+            <div class="user-review">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec semper augue sed posuere condimentum. 
+                    Praesent varius risus at risus gravida, non auctor massa ullamcorper.
+                </p>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="content-header">
+                <span class="state">${feature.properties.Title}</span>
+                <div class="count-state"><font style="vertical-align: inherit;">
+                    <font style="vertical-align: inherit;">${count} ${count>1?"Bâtiments":"Bâtiment"}</font></font>
+                </div>
+            </div>
+
+            <div class="content-body">
+                <img src="https://picsum.photos/200/100" alt="home" />
+
+                <div>
+                    <div><b>Region</b><div>
+                    <div>${feature.properties.Region}</div>
+                    <div><b>Description</b><div>
+                    <div>${feature.properties.Description}</div>
+                </div>
+
+                <div class="link-section">
+                    <a href="#" class="btn-link">LEARN MORE</a>
+                </div>
+                
+            </div>
         </div>
         <div>
 
