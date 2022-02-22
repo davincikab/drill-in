@@ -1,5 +1,6 @@
 const config = {
     iconUrl:'https://davincikab.github.io/drill-in/icons/pin.svg',
+    icon2Url:'https://www.triangle-energie.com/assets/triangleenergie/icon/pin_ronde.svg',
     statesRef:{
         "bretagne": [48.748945343432936, -6.229248046875001],
 		"normandie": [50.24720490139267, -3.9221191406250004],
@@ -117,6 +118,11 @@ const pntIcons = L.icon({
 	iconSize: L.point(15.47, 30)
 });
 
+const nonClickIcon = L.icon({
+    iconUrl: config.icon2Url,
+	iconSize: L.point(15.47, 30)
+});
+
 const regionPoints = L.geoJSON(null, {
     onEachFeature:function(feature, layer) {
         // layer.bindPop
@@ -124,8 +130,11 @@ const regionPoints = L.geoJSON(null, {
     pointToLayer:function(feature, latLng) {
         let popupContent = getPopupContent(feature);
 
+        // check if the pnt is clickable
+        let icon = !feature.properties.clickable ? pntIcons : nonClickIcon;
+        
         return L.marker(latLng, {
-            icon:pntIcons
+            icon: icon
         })
         .bindPopup(popupContent);
     }
