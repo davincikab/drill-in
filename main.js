@@ -113,12 +113,12 @@ const regionsJson = L.geoJSON(null, {
 })
 .addTo(map);
 
-const pntIcons = L.icon({
+const nonClickIcon = L.icon({
     iconUrl: config.iconUrl,
 	iconSize: L.point(15.47, 30)
 });
 
-const nonClickIcon = L.icon({
+const pntIcons = L.icon({
     iconUrl: config.icon2Url,
 	iconSize: L.point(15.47, 30)
 });
@@ -131,24 +131,29 @@ const regionPoints = L.geoJSON(null, {
         let popupContent = getPopupContent(feature);
 
         // check if the pnt is clickable
-        let icon = !feature.properties.clickable ? pntIcons : nonClickIcon;
-        
-        return L.marker(latLng, {
+        let icon = feature.properties.clickable == "TRUE" ? pntIcons : nonClickIcon;
+
+        let marker = L.marker(latLng, {
             icon: icon
-        })
-        .bindPopup(popupContent);
+        });
+
+        if(feature.properties.clickable == "TRUE") {
+            marker.bindPopup(popupContent);
+        }        
+
+        return marker;
     }
 })
 .addTo(map);
 
 function getPopupContent(feature) {
-    let { count } = feature.properties;
+    let { count, image_1, image_2 } = feature.properties;
     console.log("Popup");
 
     return `<div class="popup-content">
         <div class="aside-testimonial">
             <div class="img-header">
-                <img src="https://picsum.photos/200/150" alt="home" />
+                <img src="${image_1 || 'https://picsum.photos/200/100' }" alt="home" />
             </div>
 
             <div class="testimonial-title">
@@ -178,7 +183,7 @@ function getPopupContent(feature) {
             </div>
 
             <div class="content-body">
-                <img src="https://picsum.photos/200/100" alt="home" />
+                <img src="${image_2 || 'https://picsum.photos/200/100' }" alt="home" />
 
                 <div>
                     <div><b>Region</b><div>
